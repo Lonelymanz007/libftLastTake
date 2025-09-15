@@ -10,18 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void *ft_memchr(const void *s, int c, size_t n)
-{
-    unsigned char uc;
-    const unsigned char *ptr;
+#include "libft.h"
 
-    ptr = (const unsigned char *)s;
-    uc = (unsigned char)c;
-    while(n-- > 0)
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+    unsigned char *temp;
+    temp = (unsigned char *)s;
+    size_t i;
+    i = 0;
+
+    while(i < n)
     {
-        if(*ptr == uc)
-            return((void *)ptr);
-        ptr++;
+        if(temp[i] == (unsigned char)c)
+            return((void *)temp + i);
+        i++;
     }
     return(NULL);
 }
+
+//#include <stdio.h>
+//int main()
+//{
+//    char *a = "Find the a in this sentencez";
+//    int c = ' ';
+//    size_t i = 20;
+//    printf("%s", (char *)ft_memchr(a, c, i));
+//}

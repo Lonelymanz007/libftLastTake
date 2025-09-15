@@ -17,16 +17,19 @@ char *ft_strchr(const char *s, int c)
     unsigned int i;
     i = 0;
 
-    char Find;
-    Find = (char) c;
-
     while(s[i])
     {
-        if(s[i] == Find)
+        if(s[i] == (char) c)
             return((char *) &s[i]);
         i++;
     }
-    if (s[i] == Find)
+    if (s[i] == (char) c)
         return((char *) &s[i]);
     return(NULL);
 }
+//#include <stdio.h>
+//int main()
+//{
+//    char *a = "abcdefg";
+//    printf("%s", ft_strchr(a, 'd'));
+//}

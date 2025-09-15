@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tphuwian <tphuwian@student.42bangkok.com>  #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-09-04 08:16:22 by tphuwian          #+#    #+#             */
-/*   Updated: 2025-09-04 08:16:22 by tphuwian         ###   ########.fr       */
+/*   Created: 2025-09-14 17:10:28 by tphuwian          #+#    #+#             */
+/*   Updated: 2025-09-14 17:10:28 by tphuwian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void ft_putnbr_fd(int n, int fd)
 {
-	unsigned char *dst;
-	dst = (unsigned char *) b;
-	size_t i;
-	i = 0;
+    if (n == -2147483648)
+        write(fd, "-2147483648", 11);
 
-	while(i < len)
-	{
-		dst[i] = (unsigned char) c;
-		i++;
-	}
-	return(b);
+    if (n < 0)
+    {
+        write(1, "-", 1);
+        n = -n;
+    }
+
+    if (n > 9)
+    {
+        ft_putnbr_fd(n/10, fd);
+        ft_putnbr_fd(n%10, fd);
+    }
+
+    else
+        write(fd, &"0123456789"[n % 10], 1);
 }
+//int main()
+//{
+//    ft_putnbr_fd(213456, 1);
+//}

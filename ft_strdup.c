@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tphuwian <tphuwian@student.42bangkok.com>  #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-09-04 08:16:22 by tphuwian          #+#    #+#             */
-/*   Updated: 2025-09-04 08:16:22 by tphuwian         ###   ########.fr       */
+/*   Created: 2025-09-12 15:49:16 by tphuwian          #+#    #+#             */
+/*   Updated: 2025-09-12 15:49:16 by tphuwian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+char *ft_strdup(const char *s1)
 {
-	unsigned char *dst;
-	dst = (unsigned char *) b;
-	size_t i;
-	i = 0;
-
-	while(i < len)
-	{
-		dst[i] = (unsigned char) c;
-		i++;
-	}
-	return(b);
+    char *dest;
+    dest = (char *)malloc(ft_strlen(s1) + 1);
+    size_t i;
+    i = 0;
+    if(!dest)
+        return(NULL);
+    while(s1[i])
+    {
+        dest[i] = s1[i];
+        i++;
+    }
+    dest[i] = '\0';
+    return(dest);
 }
+//#include <stdio.h>
+//int main()
+//{
+//    char *a = "abcdefghijklmnop";
+//    printf("%s", ft_strdup(a));
+//}
