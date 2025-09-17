@@ -14,22 +14,22 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-    unsigned char *temp;
-    temp = (unsigned char *)s;
-    size_t i;
-    i = 0;
+	unsigned char	*temp;
+	size_t			i;
 
-    while(i < n)
-    {
-        if(temp[i] == (unsigned char)c)
-            return((void *)temp + i);
-        i++;
-    }
-    return(NULL);
+	temp = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		if (temp[i] == (unsigned char)c)
+			return ((void *)temp + i);
+		i++;
+	}
+	return (NULL);
 }
 
 //#include <stdio.h>
-//int main()
+// int main()
 //{
 //    char *a = "Find the a in this sentencez";
 //    int c = ' ';

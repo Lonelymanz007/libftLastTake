@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tphuwian <tphuwian@student.42bangkok.com>  #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-09-14 19:12:49 by tphuwian          #+#    #+#             */
-/*   Updated: 2025-09-14 19:12:49 by tphuwian         ###   ########.fr       */
+/*   Created: 2025-09-17 16:20:10 by tphuwian          #+#    #+#             */
+/*   Updated: 2025-09-17 16:20:10 by tphuwian         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+int main(void)
 {
-	char	*b;
-	size_t	i;
-	size_t	len;
+    char    s1[100] = "tripouille";
 
-	i = 0;
-	if (!s)
-		return (NULL);
-	len = ft_strlen(s);
-	b = malloc(len + 1);
-	if (!b)
-		return (NULL);
-	while (i < len)
-	{
-		b[i] = f(i, s[i]);
-		i++;
-	}
-	b[len] = '\0';
-	return (b);
+    ft_strlcat(s1, "42", 12);
+    printf("%s", s1);
+    return (0);
 }

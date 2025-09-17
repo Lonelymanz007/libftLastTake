@@ -11,40 +11,73 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-//char **ft_split(char const *s, char c)
-//{
-//    size_t count;
-//    count = 0;
-//    char **b;
-//    char *a;
-//    size_t i;
 
-//    i = 0;
-//    while(*s && s == c)
-//        s++;
-//    a = s;
-//    if(*s)
-//        i++;
-//    while(*s && s != c)
-//    {
-//        count++;
-//        s++;
-//    }
-//    while(s < a)
-//    {
-//        b = malloc(sizeof(char*) * (count + 1));
-//        *b++;
-//    }
-//    return(NULL);
-//}
-
-ft_countword(char const *s, char c)
+int	ft_countword(char const *s, char c)
 {
-	int i;
-	i = 0;
+	int	i;
 
-	while(*s)
+	i = 0;
+	while (*s)
 	{
-        
+		while (*s && *s == c)
+			++s;
+		if (*s)
+			i++;
+		while (*s && *s != c)
+			++s;
 	}
+	return (i);
 }
+
+void	ft_token(char **arr, char const *s, char c)
+{
+	size_t		i;
+	char const	*str;
+
+	while (*s)
+	{
+		while (*s && *s == c)
+			++s;
+		str = s;
+		i = 0;
+		while (*s && *s != c)
+		{
+			++s;
+			i++;
+		}
+		if (s > str)
+		{
+			*arr = ft_substr(str, 0, i);
+			arr++;
+		}
+	}
+	*arr = NULL;
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**b;
+	int		i;
+
+	if (!s)
+		return (NULL);
+	i = ft_countword(s, c);
+	b = malloc(sizeof(char *) * (i + 1));
+	if (!b)
+		return (NULL);
+	ft_token(b, s, c);
+	return (b);
+}
+
+// int main()
+// {
+// 	char *a = "__abc__def__ef_jb_f__";
+// 	char b = '_';
+// 	char **s = ft_split(a, b);
+
+// 	while(*s)
+// 	{
+// 		printf("%s", *s);
+// 		s++;
+// 	}
+// }
