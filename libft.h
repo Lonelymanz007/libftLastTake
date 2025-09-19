@@ -53,6 +53,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strrchr(const char *s, int c); // mark
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+char    **ft_split(char const *s, char c);
 
 // typedef struct s_list
 //{
