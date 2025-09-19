@@ -17,7 +17,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 %.o:%.c Makefile libft.h
-	@printf "\033[1;92mCompiled 👌🏽 %s\033[0m\n" $@
+	@printf "\033[1;92mCompiled 👌🏽%s\033[0m\n" $@
 	@$(CC) $(CCFLAG) -c $< -o $@
 clean:
 	rm -f $(OBJ)
